@@ -13,13 +13,11 @@ class CustomerTest {
 
     @BeforeEach
     void setUp() {
-        // Initialize a customer before each test
         customer = new Customer("Arnold Schwarzenegger", "Paleo");
     }
 
     @AfterEach
     void tearDown() {
-        // Clean up resources or settings if necessary after each test
         customer = null;
     }
 
@@ -35,28 +33,21 @@ class CustomerTest {
 
     @Test
     void getCarb() {
-        // Assuming that Paleo allows only Pistachio as a carb
-        // Direct assert is only possible if implementation specifics are known and fixed
-        // Here we test if getCarb does not return null
         assertNotNull(customer.getCarb(), "Carb should not be null for Paleo diet");
     }
 
     @Test
     void getProtein() {
-        // Similarly, test if getProtein does not return null
-        // The exact protein may depend on random choice, so we ensure non-null for now
         assertNotNull(customer.getProtein(), "Protein should not be null for Paleo diet");
     }
 
     @Test
     void getFat() {
-        // For Paleo, assume a specific allowed fat or a non-null result
         assertNotNull(customer.getFat(), "Fat should not be null for Paleo diet");
     }
 
     @Test
     void testToString() {
-        // Constructing expected String based on current customer data
         String expectedString = "Customer{" +
                 "name='" + customer.getName() + '\'' +
                 ", dietPlan='" + customer.getDietPlan() + '\'' +

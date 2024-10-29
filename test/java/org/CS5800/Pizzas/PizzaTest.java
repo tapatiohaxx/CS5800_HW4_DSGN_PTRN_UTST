@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.ArrayList;
-import java.lang.String;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,13 +13,13 @@ class PizzaTest {
 
     @BeforeEach
     void setUp() {
-        // Initialize toppings as a List of Topping enums
         List<Topping> toppings = new ArrayList<>();
         toppings.add(Topping.EXTRA_CHEESE);
         toppings.add(Topping.BACON);
-        toppings.add(Topping.BEEF);  // Assuming TOMATO is a valid enum value in Topping
-        // Correct constructor call now includes the pizza chain and uses enum values for toppings
-        Pizza pizza = new Pizza.PizzaBuilder("Pizza Hut", "Large",toppings)
+        toppings.add(Topping.BEEF);
+
+
+        this.pizza = new Pizza.PizzaBuilder("Pizza Hut", "Large")
                 .addTopping(Topping.EXTRA_CHEESE)
                 .addTopping(Topping.BACON)
                 .addTopping(Topping.BEEF)
@@ -48,7 +47,6 @@ class PizzaTest {
 
     @Test
     void eat() {
-        // Assuming 'eat' method prints the description and then returns it
         String expectedOutput = "Eating a Large pizza from Pizza Hut with toppings: [EXTRA_CHEESE, BACON, BEEF]";
         assertEquals(expectedOutput, pizza.eat(), "Eat method should return the correct pizza description");
     }
